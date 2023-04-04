@@ -8,14 +8,14 @@ struct Rectangle {
     int breadth;
 };
 
-void func(struct Rectangle *p){
-    p->length=20;
-    cout<<"length "<<p->length<<endl<<"Breadth "<<p->breadth<<endl;
+struct Rectangle *func(){
+    struct Rectangle *p;
+    p=(struct Rectangle *)malloc(sizeof(struct Rectangle ));
+    p->length=15;
+    p->breadth=7;
+    return p;
 }
-
-int main (){
-    struct  Rectangle r={10,5};
-    func(&r);
-    cout<<"length "<<r.length<<endl<<"Breadth "<<r.breadth<<endl;
-    return 0;
+int main(){
+    struct Rectangle *ptr=func();
+    cout<<"length "<<ptr->length<<endl<<"Breadth "<<ptr->breadth<<endl;
 }
