@@ -2,19 +2,29 @@
 #include <stdio.h>
 using namespace std;
 
-int area (int length, int breadth){
-    return length*breadth;
+struct Rectangle {
+    int length;
+    int breadth;
+};
+void initialize(struct Rectangle *r, int l, int b){
+    r->length=l;
+    r->breadth=b;
 }
-int perimeter(int length, int breadth){
-    int p;
-    return 2*(length+breadth);
+
+int area (struct Rectangle r){
+    return r.length*r.breadth;
+}
+int perimeter(struct Rectangle r){
+    return 2*(r.length+r.breadth);
 }
 
 int main(){
-    int length=0, breadth=0;
+    Rectangle r={0,0};
+    int c=0,b=0;
     printf("Enter Length and Breadth ");
-    cin>>length>>breadth;
-    int a=area(length,breadth);
-    int p=perimeter(length,breadth);
+    cin>>c>>b;
+    initialize(&r,c,b);
+    int a=area(r);
+    int p=perimeter(r);
     cout<<"Area= "<<a<<" perimeter= "<<p<<endl;
 }
