@@ -24,6 +24,24 @@ void create(int A[], int n){
     }
 }
 
+int Count (struct Node *p){
+
+    int c=0;
+    while(p){
+        c++;
+        p=p->next;
+    }
+    return c;
+}
+int RCount (struct Node *p){
+
+    if(p)
+        return RCount(p->next)+1;
+    else
+        return 0;
+
+}
+
 void display(struct Node *p)
     {
         while(p!=NULL){
@@ -56,6 +74,7 @@ int main(int argc, char const *argv[])
 {
     int A[]={1,4,5,2,6,1,10,9};
     create(A,8);
-    Rdisplay1(first);
+    //Rdisplay1(first);
+    printf("%d\n ",RCount(first));
     return 1;
 }
