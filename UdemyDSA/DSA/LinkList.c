@@ -41,6 +41,50 @@ int RCount (struct Node *p){
         return 0;
 
 }
+// Adding element of the list
+int Add(struct Node *p){
+    int sum=0;
+    while(p){
+        sum=sum+p->data;
+        p=p->next;
+    }
+    return sum;
+}
+
+
+int RAdd(struct Node *p){
+    int sum=0;
+    if(p)
+        return RAdd(p->next)+p->data;
+    return 0;
+}
+// finding maximum value of list element;
+
+
+int Max(struct Node *p){
+    int max=-3276;
+    while(p){
+        if(p->data>max)
+            max=p->data;
+        p=p->next;
+   
+    }
+    return max;
+}
+int RMax(struct Node *p){
+    int max=-3276,x=0;
+
+    if(p==NULL)
+        return max;
+    else
+        x=Max(p->next);
+        if(x>p->data)
+            return x;
+        else
+            return p->data;
+}
+
+// displaying element of the list
 
 void display(struct Node *p)
     {
@@ -72,9 +116,9 @@ void Rdisplay1(struct Node *p)
 
 int main(int argc, char const *argv[])
 {
-    int A[]={1,4,5,2,6,1,10,9};
+    int A[]={1,4,5,29,2,6,1,10,9};
     create(A,8);
     //Rdisplay1(first);
-    printf("%d\n ",RCount(first));
+    printf("%d\n ",Max(first));
     return 1;
 }
