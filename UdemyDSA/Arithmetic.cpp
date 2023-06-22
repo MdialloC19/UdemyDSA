@@ -23,7 +23,7 @@ template <class T>
         return c;
     }
 template <class T>
-    T Arithmetic<T>::sub(){
+    T Arithmetic<T>::sub(){ 
         T c;
         c=a-b;
         return c;
