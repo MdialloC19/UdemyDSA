@@ -32,12 +32,30 @@ void display(struct Node *p)
         }
 
     }
+
+void Rdisplay(struct Node *p)
+    {
+        if(p!=NULL){
+            printf("%d ",p->data);
+            Rdisplay(p->next);
+        }
+
+    }
+
+void Rdisplay1(struct Node *p)
+    {
+        if(p!=NULL){
+            Rdisplay1(p->next);
+            printf("%d ",p->data);
+        }
+
+    }
     
 
 int main(int argc, char const *argv[])
 {
     int A[]={1,4,5,2,6,1,10,9};
     create(A,8);
-    display(first);
+    Rdisplay1(first);
     return 1;
 }
