@@ -42,6 +42,10 @@ int RCount (struct Node *p){
 
 }
 
+int sum(struct Node *p){
+    
+}
+
 void display(struct Node *p)
     {
         while(p!=NULL){
