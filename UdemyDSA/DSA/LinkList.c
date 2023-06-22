@@ -42,8 +42,21 @@ int RCount (struct Node *p){
 
 }
 
-int sum(struct Node *p){
-    
+int Add(struct Node *p){
+    int sum=0;
+    while(p){
+        sum=sum+p->data;
+        p=p->next;
+    }
+    return sum;
+}
+
+
+int RAdd(struct Node *p){
+    int sum=0;
+    if(p)
+        return RAdd(p->next)+p->data;
+    return 0;
 }
 
 void display(struct Node *p)
@@ -79,6 +92,6 @@ int main(int argc, char const *argv[])
     int A[]={1,4,5,2,6,1,10,9};
     create(A,8);
     //Rdisplay1(first);
-    printf("%d\n ",RCount(first));
+    printf("%d\n ",Add(first));
     return 1;
 }
