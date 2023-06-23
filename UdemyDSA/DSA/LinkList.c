@@ -6,6 +6,8 @@ struct Node{
     struct Node *next;
 }* first=NULL;
 
+
+// Creating a link list
 void create(int A[], int n){
     int i;
     struct Node *t, *last;
@@ -24,6 +26,7 @@ void create(int A[], int n){
     }
 }
 
+//Counting element of link list
 int Count (struct Node *p){
 
     int c=0;
@@ -84,6 +87,32 @@ int RMax(struct Node *p){
             return p->data;
 }
 
+//Linear Searsh
+
+struct Node * LSearsh(struct Node *p, int key){
+    struct Node *q;
+    while(p!=NULL){
+        if(key==p->data){
+            q->next=p->next;
+            p->next=first;
+            first=p;
+            return p;
+        }
+        q=p;
+        p=p->next;
+    }
+    return NULL;      
+}
+
+struct Node * RSearsh(struct Node *p, int key){
+
+    if(p==NULL)
+        return NULL;
+    if(key==p->data)
+        return p;
+    return RSearsh(p->next,key);
+}
+
 // displaying element of the list
 
 void display(struct Node *p)
@@ -117,8 +146,17 @@ void Rdisplay1(struct Node *p)
 int main(int argc, char const *argv[])
 {
     int A[]={1,4,5,29,2,6,1,10,9};
+    struct Node *temp;
     create(A,8);
     //Rdisplay1(first);
-    printf("%d\n ",Max(first));
+    // printf("%d\n ",Max(first));
+    
+    temp=LSearsh(first,29);
+
+    if(temp)
+        printf("Key is found %d\n", temp->data);
+    else
+        printf("Key isn't found\n ");
+    
     return 1;
 }
