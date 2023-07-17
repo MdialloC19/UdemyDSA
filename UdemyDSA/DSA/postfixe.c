@@ -1,58 +1,34 @@
-Expressions régulière
-Point 1 :
-1)
-
-structure Node
+Structure Node
     donne : entier
     suiv : ^Node
-Fin Declaration
+Fin Structure
 
-//Declaration de la variable pile : pointeur vers Node initialise à NULL à implémenter dans le code 
-
-Fonction empiler(e : entier, pile : ^Node)
-    newNoeud :^Node
-    Allouer(newNoeud)
-    //Allouer newNoeud avec la taille d'un Node
+Fonction empiler(pile : ^Node, x : entier)
+    t : ^Node
+    Allouer(t)
     
-    Si newNoeud== NUL alors
+    Si t == NULL alors
         Afficher "La pile est pleine"
     Sinon
-        newNoeud.donne <- e
-        newNoeud.suiv <- pile
-        pile <- newNoeud
+        t.donne <- x
+        t.suiv <- pile
+        pile <- t
     Fin Si
 Fin Fonction
 
 Fonction depiler(pile : ^Node) : entier
-    Si pile ==NUL alors
-        Afficher("La pile est vide")
+    t : ^Node
+    x : entier
+    
+    Si pile == NULL alors
+        Afficher "La pile est vide"
         retourner -1 // Valeur d'erreur pour indiquer une pile vide
     Sinon
-        sommet :^Node
-        sommet <- pile
+        t <- pile
         pile <- pile.suiv
-        vSommet : entier
-        vSommet <- sommet.donne
+        x <- t.donne
         
-        //Liberer sommet à faire en le programmant
-        retourner vSommet
-    Fin Si
-Fin Fonction
-
-Fonction sommet(pile : ^Node) : entier
-    Si pile== NUL alors
-        Afficher("La pile est vide")
-        retourner -1 // Valeur d'erreur pour indiquer une pile vide
-    Sinon
-        retourner pile.donne
-    Fin Si
-Fin Fonction
-
-Fonction estVide(pile : ^Node) : entier
-    Si pile==NULL alors
-        retourner 1
-    Sinon
-        retourner 0
+        retourner x
     Fin Si
 Fin Fonction
 
@@ -95,18 +71,12 @@ Fonction evaluatePostfix(expression : chaine de caractères) : entier
     retourner depiler(pile)
 Fin Fonction
 
-Debut
-    pile : ^Node  NULL
+Début
+    expression : chaine de caractères
+    résultat : entier
     
-    // Test des fonctions
-    empiler(10, pile)
-    empiler(20, pile)
-    empiler(30, pile)
-    Afficher ("Sommet de la pile: " + sommet(pile))
-    Afficher ("Depilage: " + depiler(pile))
-    Afficher ("Depilage: " + depiler(pile))
-    Afficher ("Depilage: " + depiler(pile))
-    Afficher ( "Depilage: " + depiler(pile) )// Tentative de depilage lorsque la pile est vide
+    expression <- "2 4 5 + *"
+    résultat <- evaluatePostfix(expression)
     
-    Afficher( "Est vide? " + estVide(pile))
+    Afficher "Résultat : " + résultat
 Fin
