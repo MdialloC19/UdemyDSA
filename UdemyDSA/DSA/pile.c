@@ -1,3 +1,6 @@
+Expressions régulière
+Point 1 :
+1)
 
 structure Node
     donne : entier
