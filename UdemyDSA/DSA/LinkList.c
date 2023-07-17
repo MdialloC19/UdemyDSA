@@ -157,6 +157,10 @@ int main(int argc, char const *argv[])
         printf("Key is found %d\n", temp->data);
     else
         printf("Key isn't found\n ");
-    
+
+    display(first);
     return 1;
 }
+
+
+
