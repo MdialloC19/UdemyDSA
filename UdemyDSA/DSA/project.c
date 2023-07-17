@@ -7,6 +7,7 @@ struct Noeud {
     struct Noeud *suiv;
 };
 
+
 void empiler(int x, struct Noeud **pile) {
     struct Noeud *t;
     t = (struct Noeud*)malloc(sizeof(struct Noeud));
@@ -51,7 +52,7 @@ int estVide(struct Noeud *pile) {
     return 0;
 }
 
-int evaluatePostfix(char *expression) {
+int evaluerPostfix(char *expression) {
     struct Noeud *pile = NULL;
     int i, operand1, operand2, result;
     int longueur = strlen(expression);
@@ -113,7 +114,7 @@ int main() {
     afficher(p);
 
     char *expression = "5 2 +";
-    int result = evaluatePostfix(expression);
+    int result = evaluerPostfix(expression);
     printf("Résultat : %d\n", result);
 
     return 0;
